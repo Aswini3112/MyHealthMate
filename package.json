@@ -1,0 +1,16 @@
+{
+  "name": "myhealthmate",
+  "version": "1.0.0",
+  "description": "MyHealthMate - Digital Health Records Platform for HACKHAZARDS '26",
+  "private": true,
+  "scripts": {
+    "dev": "concurrently \"npm run dev:server\" \"npm run dev:client\"",
+    "dev:server": "npm run dev --prefix server",
+    "dev:client": "npm run dev --prefix client",
+    "build": "npm run build --prefix server && npm run build --prefix client",
+    "start": "npm run start --prefix server"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.0"
+  }
+}

@@ -1,0 +1,238 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+/* Design tokens (light healthcare theme) */
+:root {
+  --font-sans: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, 'Apple Color Emoji', 'Segoe UI Emoji';
+
+  /* BrightSmile-inspired healthcare theme */
+  --primary-blue: #2D7FF9;
+  --light-blue: #EAF4FF;
+  --accent-blue: #4A90FF;
+  --bg-main: #FFFFFF;
+  --bg-section: #F7FAFC;
+  --card-bg: #FFFFFF;
+  --border-color: #DCE6F2;
+  --text-primary: #1E3A5F;
+  --text-secondary: #5B6B7F;
+
+  --success: #22C55E;
+  --warning: #F59E0B;
+  --danger: #EF4444;
+
+  /* Backwards-compatible aliases for existing CSS */
+  --primary: var(--primary-blue);
+  --accent: var(--accent-blue);
+  --bg: var(--bg-section);
+  --card: var(--card-bg);
+  --muted: var(--text-secondary);
+  --text: var(--text-primary);
+  --border: var(--border-color);
+
+  --shadow-sm: 0 1px 2px rgba(30, 58, 95, 0.08);
+  --shadow-md: 0 10px 30px rgba(45, 127, 249, 0.14);
+}
+
+
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: var(--font-sans);
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Premium card / glass replacements */
+.glass {
+  background: rgba(255, 255, 255, 0.86);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(215, 232, 247, 0.95);
+  box-shadow: 0 10px 30px rgba(45, 124, 197, 0.10), 0 1px 2px rgba(30, 58, 95, 0.05);
+}
+
+
+/* ===== Global light theme overrides ===== */
+
+:root {
+  --bg: #F7FAFD;
+  --card: #FFFFFF;
+  --primary: #2D7CC5;
+  --accent: #5FA8E8;
+  --border: #D7E8F7;
+  --text: #1E3A5F;
+  --muted: #64748B;
+}
+
+
+/* Force common dark background utilities to light equivalents */
+.bg-black,
+.bg-slate-900,
+.bg-slate-800,
+.bg-slate-700,
+.bg-gray-900,
+.bg-zinc-900,
+.bg-neutral-900,
+.bg-\[\#0f172a\],
+.bg-\[\#111827\],
+.bg-\[\#020617\] {
+  background-color: var(--bg-main) !important;
+}
+
+/* Text colors */
+.text-slate-100,
+.text-slate-200,
+.text-slate-300,
+.text-slate-400,
+.text-slate-500,
+.text-slate-600,
+.text-slate-700,
+.text-slate-900 {
+  color: var(--text-primary) !important;
+}
+
+/* Muted */
+.text-slate-500,
+.text-slate-600,
+.text-slate-400 {
+  color: var(--text-secondary) !important;
+}
+
+/* Replace common dark blue text (used in buttons/headers) back to healthcare primary */
+.text-slate-300,
+.text-slate-200,
+.text-slate-100 {
+  color: var(--text-primary) !important;
+}
+
+
+/* Common container panels that used dark slate */
+.bg-slate-900,
+.bg-slate-950,
+.bg-zinc-900,
+.bg-neutral-900,
+.bg-slate-900\/60,
+.bg-slate-900\/30,
+.bg-slate-900\/20,
+.bg-slate-900\/10 {
+  background-color: var(--light-blue) !important;
+}
+
+/* Borders */
+.border-slate-800,
+.border-slate-800\/40,
+.border-slate-800\/60,
+.border-slate-700,
+.border-slate-850 {
+  border-color: rgba(215, 232, 247, 1) !important;
+}
+
+/* Chatbot specific: remove dark chat containers */
+/* Targets are intentionally broad to avoid changing component structure */
+body #root .bg-slate-900,
+body #root .bg-slate-900\/60,
+body #root .bg-slate-900\/30,
+body #root .bg-slate-900\/20,
+body #root .bg-slate-900\/10 {
+  background-color: var(--card-bg) !important;
+  color: var(--text-primary) !important;
+}
+
+/* Recolor chat bubbles to healthcare light/blue */
+body #root .bg-emerald-500\/10,
+body #root .bg-indigo-500\/10,
+body #root .bg-indigo-500\/5,
+body #root .bg-rose-500\/10,
+body #root .bg-slate-900\/60 {
+  background-color: var(--light-blue) !important;
+}
+
+body #root .bg-slate-900\/60 {
+  background: linear-gradient(135deg, rgba(45,127,249,0.15) 0%, rgba(74,144,255,0.15) 100%) !important;
+}
+
+body #root select,
+body #root input,
+body #root textarea {
+  background-color: #FFFFFF !important;
+  border-color: var(--border-color) !important;
+  color: var(--text-primary) !important;
+}
+
+
+
+.glass-hover {
+  transition: all 0.2s ease;
+}
+
+.glass-hover:hover {
+  border-color: rgba(45, 124, 197, 0.25);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+
+/* Shared gradients */
+.text-gradient {
+  background: linear-gradient(135deg, #2D7CC5 0%, #5FA8E8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+
+.bg-gradient-primary {
+  background: linear-gradient(135deg, #2D7CC5 0%, #5FA8E8 100%);
+}
+
+
+.pulse-primary {
+  box-shadow: 0 0 0 0 rgba(37, 99, 235, 0.35);
+  animation: pulse-animation 2s infinite;
+}
+
+@keyframes pulse-animation {
+  0% {
+    box-shadow: 0 0 0 0 rgba(37, 99, 235, 0.35);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(37, 99, 235, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(37, 99, 235, 0);
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.3s ease-out;
+}
+
+/* Print styles */
+@media print {
+  nav, .print\\:hidden { display: none !important; }
+  body { background: white !important; color: black !important; }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: rgba(15, 23, 42, 0.04);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(71, 85, 105, 0.35);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(71, 85, 105, 0.55);
+}
+
