@@ -6,8 +6,7 @@ FileText, Search, Filter, UploadCloud, Eye,
 
   Check, RefreshCw, FileUp, Sparkles, UserCheck, X, AlertCircle
 } from 'lucide-react';
-
-const API_BASE = 'http://localhost:5000/api';
+import { API_BASE } from '../config';
 
 const Records: React.FC = () => {
   const { user, isAuthenticated } = useAuth();

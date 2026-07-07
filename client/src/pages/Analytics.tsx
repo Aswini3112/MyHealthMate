@@ -9,8 +9,7 @@ import {
   Plus, Target, AlertTriangle, FileDown, 
   RefreshCw, CheckCircle2, Info
 } from 'lucide-react';
-
-const API_BASE = 'http://localhost:5000/api';
+import { API_BASE } from '../config';
 
 const Analytics: React.FC = () => {
   const { user, isAuthenticated } = useAuth();

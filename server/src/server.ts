@@ -15,7 +15,7 @@ const PORT = process.env.PORT || 5000;
 
 // Enable CORS
 app.use(cors({
-  origin: '*', // Allow all origins for easier hackathon testing
+  origin: process.env.CORS_ORIGIN || '*',
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   allowedHeaders: ['Content-Type', 'Authorization']
 }));

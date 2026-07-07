@@ -2,8 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import { ShieldAlert, Calendar, ShieldCheck, User, Clock, FileText, ChevronRight, RefreshCw } from 'lucide-react';
-
-const API_BASE = 'http://localhost:5000/api';
+import { API_BASE } from '../config';
 
 interface HealthVitals {
   score: number;

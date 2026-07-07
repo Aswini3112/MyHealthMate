@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: myhealthmate-api
+    runtime: node
+    region: oregon
+    rootDir: server
+    buildCommand: npm install && npm run build
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: JWT_SECRET
+        sync: false
+      - key: MONGODB_URI
+        sync: false
+      - key: CORS_ORIGIN
+        sync: false
